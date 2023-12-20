@@ -1,8 +1,2 @@
-# project-setup-template
-
-- [x] html
-- [x] css
-- [x] javascript
-- [x] Webpack
-- [x] ESlint
-- [x] prettier
+# Weather-App
+ - to implelement the learnings of Asynchronus code and APIs
