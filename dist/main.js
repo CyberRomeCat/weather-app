@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (17:4)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n|   return (\\n>     <div\\n|       className=\\\"HelloWorld\\\"\\n|       title={`You are visitor number ${num}`}\");\n\n//# sourceURL=webpack://project-setup-template/./src/index.js?");
+eval("const getWeatherData = async (userLocation) => {\n  const response = await fetch(\n    `https://api.weatherapi.com/v1/current.json?key=490370ad19b74d52b78123129233011&q=${userLocation}`,\n    { mode: \"cors\" },\n  );\n  const weatherData = await response.json();\n\n  console.log(weatherData);\n};\n\nfunction getUserLocation() {\n  const location = document.getElementById(\"location\");\n  location.addEventListener(\"keydown\", (e) => {\n    if (e.key === \"enter\" || e.keyCode === 13) {\n      e.preventDefault();\n      getWeatherData(location.value);\n    }\n  });\n}\n\ngetUserLocation();\n\n\n//# sourceURL=webpack://project-setup-template/./src/index.js?");
 
 /***/ })
 
@@ -24,7 +24,7 @@ eval("throw new Error(\"Module parse failed: Unexpected token (17:4)\\nYou may n
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
 /******/ 	__webpack_modules__["./src/index.js"]();
 /******/ 	

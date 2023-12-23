@@ -1,34 +1,21 @@
-function HelloWorld({
-  greeting = "hello",
-  greeted = '"World"',
-  silent = false,
-  onMouseOver,
-}) {
-  if (!greeting) {
-    return null;
-  }
-
-  // TODO: Don't use random in render
-  let num = Math.floor(Math.random() * 1e7)
-    .toString()
-    .replace(/\.\d+/gi, "");
-
-  return (
-    <div
-      className="HelloWorld"
-      title={`You are visitor number ${num}`}
-      onMouseOver={onMouseOver}
-    >
-      <strong>
-        {greeting.slice(0, 1).toUpperCase() + greeting.slice(1).toLowerCase()}
-      </strong>
-      {greeting.endsWith(",") ? (
-        " "
-      ) : (
-        <span style={{ color: "grey" }}>", "</span>
-      )}
-      <em>{greeted}</em>
-      {silent ? "." : "!"}
-    </div>
+const getWeatherData = async (userLocation) => {
+  const response = await fetch(
+    `https://api.weatherapi.com/v1/current.json?key=490370ad19b74d52b78123129233011&q=${userLocation}`,
+    { mode: "cors" },
   );
+  const weatherData = await response.json();
+
+  console.log(weatherData);
+};
+
+function getUserLocation() {
+  const location = document.getElementById("location");
+  location.addEventListener("keydown", (e) => {
+    if (e.key === "enter" || e.keyCode === 13) {
+      e.preventDefault();
+      getWeatherData(location.value);
+    }
+  });
 }
+
+getUserLocation();
