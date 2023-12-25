@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("const getWeatherData = async (userLocation) => {\n  const response = await fetch(\n    `https://api.weatherapi.com/v1/current.json?key=490370ad19b74d52b78123129233011&q=${userLocation}`,\n    { mode: \"cors\" },\n  );\n  const weatherData = await response.json();\n\n  console.log(weatherData);\n};\n\nfunction getUserLocation() {\n  const location = document.getElementById(\"location\");\n  location.addEventListener(\"keydown\", (e) => {\n    if (e.key === \"enter\" || e.keyCode === 13) {\n      e.preventDefault();\n      getWeatherData(location.value);\n    }\n  });\n}\n\ngetUserLocation();\n\n\n//# sourceURL=webpack://project-setup-template/./src/index.js?");
+eval("const getWeatherData = async (userLocation) => {\n  const response = await fetch(\n    `https://api.weatherapi.com/v1/current.json?key=490370ad19b74d52b78123129233011&q=${userLocation}`,\n    { mode: \"cors\" },\n  );\n  const weatherData = await response.json();\n  console.log(weatherData);\n};\n\nfunction getUserLocation() {\n  const location = document.getElementById(\"location\");\n  location.addEventListener(\"keydown\", (e) => {\n    if (e.key === \"Enter\") {\n      e.preventDefault();\n      getWeatherData(location.value);\n    }\n  });\n}\n\ngetUserLocation();\n\n\n//# sourceURL=webpack://project-setup-template/./src/index.js?");
 
 /***/ })
 

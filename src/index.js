@@ -4,14 +4,13 @@ const getWeatherData = async (userLocation) => {
     { mode: "cors" },
   );
   const weatherData = await response.json();
-
   console.log(weatherData);
 };
 
 function getUserLocation() {
   const location = document.getElementById("location");
   location.addEventListener("keydown", (e) => {
-    if (e.key === "enter" || e.keyCode === 13) {
+    if (e.key === "Enter") {
       e.preventDefault();
       getWeatherData(location.value);
     }
