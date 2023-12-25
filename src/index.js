@@ -1,3 +1,5 @@
+import "./style.css";
+
 const getWeatherData = async (userLocation) => {
   const response = await fetch(
     `https://api.weatherapi.com/v1/current.json?key=490370ad19b74d52b78123129233011&q=${userLocation}`,
