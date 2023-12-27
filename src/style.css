@@ -10,3 +10,54 @@
   background-size: cover;
   background-position: center;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 35rem;
+  height: 20rem;
+  padding-top: 8rem;
+  padding-left: 8rem;
+}
+
+#city-name {
+  grid-column: span 3;
+  justify-self: center;
+  align-self: center;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+}
+
+#date {
+  grid-column: span 2;
+}
+
+#date,
+#feels-like {
+  justify-self: start;
+}
+
+#time,
+#wind {
+  justify-self: end;
+}
+
+.temperature-sky {
+  grid-column: span 3;
+  justify-self: center;
+  align-self: center;
+  font-size: 2rem;
+}
+
+#COF {
+  grid-column: span 3;
+}
+
+.text {
+  align-self: center;
+  justify-self: center;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.21);
+}
