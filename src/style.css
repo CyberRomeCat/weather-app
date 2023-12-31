@@ -16,8 +16,8 @@
   grid-template-columns: repeat(3, 1fr);
   width: 35rem;
   height: 20rem;
-  padding-top: 8rem;
-  padding-left: 8rem;
+  padding-top: 15rem;
+  padding-left: 10rem;
 }
 
 #city-name {
@@ -60,4 +60,8 @@
   font-size: larger;
   font-weight: bolder;
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.21);
+}
+
+#error {
+  display: none;
 }
