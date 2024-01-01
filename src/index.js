@@ -1,5 +1,6 @@
 import "./style.css";
-import changeDisplay from "./UI";
+// eslint-disable-next-line import/no-cycle
+import { changeDisplay, changeBgImg } from "./UI";
 
 function upperCase(string) {
   const str = string;
@@ -25,6 +26,7 @@ const getWeatherData = async (userLocation) => {
       changeDisplay.changeLocation(location);
       changeDisplay.temperature(weatherData.current.temp_c);
       changeDisplay.sky(weatherData.current.condition.text);
+      changeBgImg(weatherData.current.condition.text);
       changeDisplay.feelsLike(weatherData.current.feelslike_c);
       changeDisplay.humidity(weatherData.current.humidity);
       changeDisplay.wind(weatherData.current.wind_kph);

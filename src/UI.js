@@ -60,4 +60,30 @@ const changeDisplay = (() => {
   };
 })();
 
-export default changeDisplay;
+const changeBgImg = (weather) => {
+  const bgImg = document.getElementById("bg-image");
+  if (
+    weather.includes("rain") === true ||
+    weather.includes("drizzle") === true
+  ) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/rain.jpg')";
+  } else if (weather.includes("cloudy") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/cloudy.jpg')";
+  } else if (weather.includes("Sunny") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/sunny.jpg')";
+  } else if (weather.includes("Clear") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/clear-sky.jpeg')";
+  } else if (weather.includes("Mist") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/mist.jpg')";
+  } else if (weather.includes("Overcast") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/overcast.jpg')";
+  }
+};
+
+export { changeDisplay, changeBgImg };
