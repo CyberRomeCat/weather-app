@@ -48,3 +48,4 @@ function getUserLocation() {
 }
 
 getUserLocation();
+getWeatherData("manila");
