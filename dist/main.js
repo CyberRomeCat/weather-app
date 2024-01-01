@@ -130,13 +130,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/get-data.js":
+/*!*************************!*\
+  !*** ./src/get-data.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getUserLocation: () => (/* binding */ getUserLocation),\n/* harmony export */   getWeatherData: () => (/* binding */ getWeatherData)\n/* harmony export */ });\n/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ \"./src/index.js\");\n/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UI */ \"./src/UI.js\");\n// eslint-disable-next-line import/no-cycle\n\n\n\nconst getWeatherData = async (location) => {\n  try {\n    const response = await fetch(\n      `https://api.weatherapi.com/v1/current.json?key=490370ad19b74d52b78123129233011&q=${location}`,\n      { mode: \"cors\" },\n    );\n    const weatherData = await response.json();\n    if (\n      weatherData.location.name === location ||\n      weatherData.location.region === location ||\n      weatherData.location.country === location\n    ) {\n      const error = document.getElementById(\"error\");\n      error.style.display = \"none\";\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.changeLocation(location);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.temperature(weatherData.current.temp_c);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.sky(weatherData.current.condition.text);\n      (0,_UI__WEBPACK_IMPORTED_MODULE_1__.changeBgImg)(weatherData.current.condition.text);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.feelsLike(weatherData.current.feelslike_c);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.humidity(weatherData.current.humidity);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.wind(weatherData.current.wind_kph);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.date(weatherData.location.localtime);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.time(weatherData.location.localtime);\n    }\n  } catch (err) {\n    const error = document.getElementById(\"error\");\n    error.style.display = \"block\";\n  }\n};\n\nfunction getUserLocation() {\n  const location = document.getElementById(\"location\");\n  location.addEventListener(\"keydown\", (e) => {\n    if (e.key === \"Enter\") {\n      e.preventDefault();\n      getWeatherData((0,_index__WEBPACK_IMPORTED_MODULE_0__.upperCase)(location.value));\n    }\n  });\n}\n\n\n\n\n//# sourceURL=webpack://project-setup-template/./src/get-data.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UI */ \"./src/UI.js\");\n\n// eslint-disable-next-line import/no-cycle\n\n\nfunction upperCase(string) {\n  const str = string;\n  const modStr = str[0].toUpperCase() + str.slice(1);\n  return modStr;\n}\n\nconst getWeatherData = async (userLocation) => {\n  const location = upperCase(userLocation);\n  try {\n    const response = await fetch(\n      `https://api.weatherapi.com/v1/current.json?key=490370ad19b74d52b78123129233011&q=${location}`,\n      { mode: \"cors\" },\n    );\n    const weatherData = await response.json();\n    if (\n      weatherData.location.name === location ||\n      weatherData.location.region === location ||\n      weatherData.location.country === location\n    ) {\n      const error = document.getElementById(\"error\");\n      error.style.display = \"none\";\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.changeLocation(location);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.temperature(weatherData.current.temp_c);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.sky(weatherData.current.condition.text);\n      (0,_UI__WEBPACK_IMPORTED_MODULE_1__.changeBgImg)(weatherData.current.condition.text);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.feelsLike(weatherData.current.feelslike_c);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.humidity(weatherData.current.humidity);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.wind(weatherData.current.wind_kph);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.date(weatherData.location.localtime);\n      _UI__WEBPACK_IMPORTED_MODULE_1__.changeDisplay.time(weatherData.location.localtime);\n    }\n  } catch (err) {\n    const error = document.getElementById(\"error\");\n    error.style.display = \"block\";\n  }\n};\n\nfunction getUserLocation() {\n  const location = document.getElementById(\"location\");\n  location.addEventListener(\"keydown\", (e) => {\n    if (e.key === \"Enter\") {\n      e.preventDefault();\n      getWeatherData(location.value);\n    }\n  });\n}\n\ngetUserLocation();\ngetWeatherData(\"manila\");\n\n\n//# sourceURL=webpack://project-setup-template/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   upperCase: () => (/* binding */ upperCase)\n/* harmony export */ });\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _get_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./get-data */ \"./src/get-data.js\");\n/* eslint-disable import/prefer-default-export */\n\n\n// eslint-disable-next-line import/no-cycle\n\nfunction upperCase(string) {\n  const str = string;\n  const modStr = str[0].toUpperCase() + str.slice(1);\n  return modStr;\n}\n\n(0,_get_data__WEBPACK_IMPORTED_MODULE_1__.getUserLocation)();\n(0,_get_data__WEBPACK_IMPORTED_MODULE_1__.getWeatherData)(upperCase(\"manila\"));\n\n\n\n\n//# sourceURL=webpack://project-setup-template/./src/index.js?");
 
 /***/ }),
 
@@ -300,7 +310,7 @@ eval("module.exports = __webpack_require__.p + \"d366dfa41707634ff4b4.svg\";\n\n
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
