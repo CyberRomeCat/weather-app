@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import "./style.css";
-import { getUserLocation, getWeatherData } from "./get-data";
 // eslint-disable-next-line import/no-cycle
+import { getUserLocation, getWeatherData } from "./get-data";
 
 function upperCase(string) {
   const str = string;
