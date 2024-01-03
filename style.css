@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+}
+
+#bg-image {
+  height: 100vh;
+  width: 100%;
+  background-image: url("./imgs/clear-sky.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.weather-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 35rem;
+  height: 20rem;
+  justify-self: center;
+  align-self: center;
+}
+
+#city-name {
+  grid-column: span 3;
+  justify-self: center;
+  align-self: center;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+}
+
+#date {
+  grid-column: span 2;
+}
+
+#date,
+#feels-like {
+  justify-self: start;
+}
+
+#time,
+#wind {
+  justify-self: end;
+}
+
+.temperature-sky {
+  grid-column: span 3;
+  justify-self: center;
+  align-self: center;
+  font-size: 2rem;
+}
+
+.text {
+  align-self: center;
+  justify-self: center;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.21);
+}
+
+#error {
+  display: none;
+  padding-left: 7rem;
+  color: beige;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+#search-location {
+  display: grid;
+  gap: 2rem;
+  grid-template-rows: repeat(3, 1fr);
+  width: 35rem;
+  height: 20rem;
+  padding: 2rem;
+  align-self: center;
+}
+
+#search-location-text {
+  justify-self: center;
+  align-self: center;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  font-weight: bolder;
+  color: aliceblue;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.21);
+}
+
+#location-icon {
+  background-image: url("./location-pin-svgrepo-com\ \(1\).svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  margin-left: 15rem;
+}
+
+#search-container {
+  padding-top: 1.5rem;
+  padding-left: 7rem;
+}
+
+#location {
+  border-color: aliceblue;
+  background: aliceblue;
+  height: 3rem;
+  border-radius: 0.3vw;
+  padding-left: 6rem;
+  padding-right: 3rem;
+  font-size: 1rem;
+}
