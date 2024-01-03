@@ -1,3 +1,5 @@
+/* eslint-disable no-bitwise */
+/* eslint-disable radix */
 /* eslint-disable prefer-destructuring */
 const changeDisplay = (() => {
   const changeLocation = (region) => {
@@ -60,29 +62,45 @@ const changeDisplay = (() => {
   };
 })();
 
-const changeBgImg = (weather) => {
+function modifyString(getTime) {
+  const nightTime = [19, 20, 21, 22, 23, 0, 1, 2, 3, 4];
+  const replaceStr = getTime.replaceAll(":", " ");
+  const splitStr = replaceStr.split(" ");
+  const time = parseInt(splitStr[1]);
+  const nightTimeTrue = nightTime.includes(time);
+  return nightTimeTrue;
+}
+
+const changeBgImg = (weather, time) => {
   const bgImg = document.getElementById("bg-image");
+  const countryNightTime = modifyString(time);
   if (
+    (countryNightTime === true) &
+    (weather.includes("Clear") === true || weather.includes("cloudy") === true)
+  ) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/imgs/night-sky.jpg')";
+  } else if (weather.includes("cloudy") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/imgs/cloudy.jpg')";
+  } else if (weather.includes("Sunny") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/imgs/sunny.jpg')";
+  } else if (weather.includes("Clear") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/imgs/clear-sky.jpeg')";
+  } else if (weather.includes("Mist") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/imgs/mist.jpg')";
+  } else if (weather.includes("Overcast") === true) {
+    bgImg.style.backgroundImage = "";
+    bgImg.style.backgroundImage = "url('../src/imgs/overcast.jpg')";
+  } else if (
     weather.includes("rain") === true ||
     weather.includes("drizzle") === true
   ) {
     bgImg.style.backgroundImage = "";
-    bgImg.style.backgroundImage = "url('../src/rain.jpg')";
-  } else if (weather.includes("cloudy") === true) {
-    bgImg.style.backgroundImage = "";
-    bgImg.style.backgroundImage = "url('../src/cloudy.jpg')";
-  } else if (weather.includes("Sunny") === true) {
-    bgImg.style.backgroundImage = "";
-    bgImg.style.backgroundImage = "url('../src/sunny.jpg')";
-  } else if (weather.includes("Clear") === true) {
-    bgImg.style.backgroundImage = "";
-    bgImg.style.backgroundImage = "url('../src/clear-sky.jpeg')";
-  } else if (weather.includes("Mist") === true) {
-    bgImg.style.backgroundImage = "";
-    bgImg.style.backgroundImage = "url('../src/mist.jpg')";
-  } else if (weather.includes("Overcast") === true) {
-    bgImg.style.backgroundImage = "";
-    bgImg.style.backgroundImage = "url('../src/overcast.jpg')";
+    bgImg.style.backgroundImage = "url('../src/imgs/rain.jpg')";
   }
 };
 

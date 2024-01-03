@@ -19,12 +19,16 @@ const getWeatherData = async (location) => {
       changeDisplay.changeLocation(location);
       changeDisplay.temperature(weatherData.current.temp_c);
       changeDisplay.sky(weatherData.current.condition.text);
-      changeBgImg(weatherData.current.condition.text);
+      changeBgImg(
+        weatherData.current.condition.text,
+        weatherData.location.localtime,
+      );
       changeDisplay.feelsLike(weatherData.current.feelslike_c);
       changeDisplay.humidity(weatherData.current.humidity);
       changeDisplay.wind(weatherData.current.wind_kph);
       changeDisplay.date(weatherData.location.localtime);
       changeDisplay.time(weatherData.location.localtime);
+      console.log(weatherData.location.localtime);
     }
   } catch (err) {
     const error = document.getElementById("error");
